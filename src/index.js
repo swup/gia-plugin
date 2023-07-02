@@ -3,8 +3,8 @@ import loadComponents from 'gia/loadComponents';
 import removeComponents from 'gia/removeComponents';
 import config from 'gia/config';
 
-export default class GiaPlugin extends Plugin {
-	name = 'GiaPlugin';
+export default class SwupGiaPlugin extends Plugin {
+	name = 'SwupGiaPlugin';
 
 	constructor(options) {
 		super();
