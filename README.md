@@ -1,25 +1,26 @@
 # Swup Gia Plugin
-Swup plugin for simple implementation with [Gia framework](https://github.com/giantcz/gia). 
-Plugin automatically reloads components when it's needed only for the replaced containers. 
 
-## Instalation
+A [swup](https://swup.js.org) plugin for integrating
+[Gia](https://www.npmjs.com/package/gia) frontend components.
 
-This plugin can be installed with npm
+Automatically reloads components when required only for the replaced containers.
+
+## Installation
+
+Install the plugin from npm and import it into your bundle.
 
 ```bash
 npm install @swup/gia-plugin
 ```
 
-and included with import
-
-```javascript
+```js
 import SwupGiaPlugin from '@swup/gia-plugin';
 ```
 
-or included from the dist folder
+Or include the minified production file from a CDN:
 
 ```html
-<script src="./dist/SwupGiaPlugin.js"></script>
+<script src="https://unpkg.com/@swup/gia-plugin@2"></script>
 ```
 
 ## Usage
@@ -32,36 +33,41 @@ const swup = new Swup({
 });
 ```
 
-
 ## Options
 
 ### components
-Defines components object to be used for mount/unmount. Defaults to empty object.
+
+Components to be used for mount/unmount. Defaults to an empty object.
 
 ```javascript
 import Component from 'gia/Component'
 
-class SampleComponent extends Component {
+class ExampleComponent extends Component {
     // ...
 }
 
 const components = {
-    SampleComponent: SampleComponent
+  ExampleComponent
 }
-new SwupGiaPlugin({components: components});
+
+const swup = new Swup({
+  plugins: [new SwupGiaPlugin({ components })]
+})
 ```
 
 ### firstLoad
-Defines whether plugin should load the component on start. Defaults to `true`.
+
+Whether the components should be loaded on start. Defaults to `true`.
 
 ```javascript
-new SwupGiaPlugin({firstLoad: true});
+new SwupGiaPlugin({ firstLoad: true });
 ```
 
 ### log
-Defines whether plugin should let Gia report info on mounting/unmounting of components (like setting `log` variable with [Gia config](https://github.com/giantcz/gia#config)).
-Defaults to `false`.
+
+Let Gia report info on mounting/unmounting of components. Corresponds to setting the `log` variable
+of [Gia's config](https://github.com/giantcz/gia#config)). Defaults to `false`.
 
 ```javascript
-new SwupGiaPlugin({log: false});
+new SwupGiaPlugin({ log: false });
 ```
