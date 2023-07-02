@@ -6,47 +6,45 @@ import config from 'gia/config';
 export default class SwupGiaPlugin extends Plugin {
 	name = 'SwupGiaPlugin';
 
+	requires = { swup: '>=4' };
+
+	defaults = {
+		components: {},
+		firstLoad: true,
+		log: false
+	};
+
+	get containers() {
+		const selector = this.swup.context.containers.join(', ');
+		return Array.from(document.querySelectorAll(selector));
+	}
+
 	constructor(options) {
 		super();
-
-		const defaultOptions = {
-			components: {},
-			firstLoad: true,
-			log: false,
-		};
-
-		this.options = {
-			...defaultOptions,
-			...options
-		};
-
+		this.options = { ...this.defaults, ...options };
 		config.set('log', this.options.log);
 	}
 
 	mount() {
+		this.swup.hooks.before('replaceContent', this.unloadComponents);
+		this.swup.hooks.on('replaceContent', this.mountComponents);
 		if (this.options.firstLoad) {
 			this.mountComponents();
 		}
-
-		this.swup.on('contentReplaced', this.mountComponents);
-		this.swup.on('willReplaceContent', this.unloadComponents);
 	}
 
 	unmount() {
+		this.swup.hooks.off('replaceContent', this.unloadComponents);
+		this.swup.hooks.off('replaceContent', this.mountComponents);
 		this.unloadComponents();
-		this.swup.off('contentReplaced', this.mountComponents);
-		this.swup.off('willReplaceContent', this.unloadComponents);
 	}
 
 	mountComponents = () => {
-		const containers = Array.prototype.slice.call(document.querySelectorAll('[data-swup]'));
-
-		containers.forEach(container => loadComponents(this.options.components, container));
+		const { components } = this.options;
+		this.containers.forEach((container) => loadComponents(components, container));
 	}
 
 	unloadComponents = () => {
-		const containers = Array.prototype.slice.call(document.querySelectorAll('[data-swup]'));
-
-		containers.forEach(container => removeComponents(container));
+		this.containers.forEach((container) => removeComponents(container));
 	}
 }
