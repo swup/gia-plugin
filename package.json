@@ -1,8 +1,8 @@
 {
   "name": "@swup/gia-plugin",
-  "version": "1.0.1",
   "description": "Swup plugin for simple use with the Gia framework.",
   "amdName": "SwupGiaPlugin",
+  "version": "2.0.0",
   "type": "module",
   "source": "src/index.js",
   "main": "./dist/index.cjs",
