@@ -26,16 +26,16 @@ export default class SwupGiaPlugin extends Plugin {
 	}
 
 	mount() {
-		this.swup.hooks.before('replaceContent', this.unloadComponents);
-		this.swup.hooks.on('replaceContent', this.mountComponents);
+		this.swup.hooks.before('content:replace', this.unloadComponents);
+		this.swup.hooks.on('content:replace', this.mountComponents);
 		if (this.options.firstLoad) {
 			this.mountComponents();
 		}
 	}
 
 	unmount() {
-		this.swup.hooks.off('replaceContent', this.unloadComponents);
-		this.swup.hooks.off('replaceContent', this.mountComponents);
+		this.swup.hooks.off('content:replace', this.unloadComponents);
+		this.swup.hooks.off('content:replace', this.mountComponents);
 		this.unloadComponents();
 	}
 
