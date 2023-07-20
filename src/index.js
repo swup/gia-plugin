@@ -22,29 +22,30 @@ export default class SwupGiaPlugin extends Plugin {
 	constructor(options) {
 		super();
 		this.options = { ...this.defaults, ...options };
-		config.set('log', this.options.log);
 	}
 
 	mount() {
-		this.swup.hooks.before('content:replace', this.unloadComponents);
-		this.swup.hooks.on('content:replace', this.mountComponents);
+		config.set('log', this.options.log);
+
+		this.before('content:replace', this.unloadComponents);
+		this.on('content:replace', this.mountComponents);
+
 		if (this.options.firstLoad) {
 			this.mountComponents();
 		}
 	}
 
 	unmount() {
-		this.swup.hooks.off('content:replace', this.unloadComponents);
-		this.swup.hooks.off('content:replace', this.mountComponents);
+		super.unmount();
 		this.unloadComponents();
 	}
 
-	mountComponents = () => {
+	mountComponents() {
 		const { components } = this.options;
 		this.containers.forEach((container) => loadComponents(components, container));
 	}
 
-	unloadComponents = () => {
+	unloadComponents() {
 		this.containers.forEach((container) => removeComponents(container));
 	}
 }
