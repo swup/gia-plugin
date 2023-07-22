@@ -19,7 +19,7 @@ export default class SwupGiaPlugin extends Plugin {
 		return Array.from(document.querySelectorAll(selector));
 	}
 
-	constructor(options) {
+	constructor(options = {}) {
 		super();
 		this.options = { ...this.defaults, ...options };
 	}
