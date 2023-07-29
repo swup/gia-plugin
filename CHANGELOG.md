@@ -2,6 +2,10 @@
 
 <!-- ## [Unreleased] -->
 
+## [2.0.1] - 2023-07-29
+
+- Fix error when accessing containers
+
 ## [2.0.0] - 2023-07-26
 
 - Switch to microbundle
@@ -14,7 +18,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/swup/gia-plugin/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/swup/gia-plugin/compare/2.0.1...HEAD
 
+[2.0.1]: https://github.com/swup/gia-plugin/releases/tag/2.0.1
 [2.0.0]: https://github.com/swup/gia-plugin/releases/tag/2.0.0
 [1.0.0]: https://github.com/swup/gia-plugin/releases/tag/1.0.0
