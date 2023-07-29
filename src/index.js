@@ -15,7 +15,7 @@ export default class SwupGiaPlugin extends Plugin {
 	};
 
 	get containers() {
-		const selector = this.swup.context.containers.join(', ');
+		const selector = this.swup.visit.containers.join(', ');
 		return Array.from(document.querySelectorAll(selector));
 	}
 
