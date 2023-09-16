@@ -2,6 +2,10 @@
 
 <!-- ## [Unreleased] -->
 
+## [2.0.2] - 2023-09-16
+
+- Use fully-qualified import paths
+
 ## [2.0.1] - 2023-07-29
 
 - Fix error when accessing containers
@@ -18,8 +22,9 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/swup/gia-plugin/compare/2.0.1...HEAD
+[Unreleased]: https://github.com/swup/gia-plugin/compare/2.0.2...HEAD
 
+[2.0.2]: https://github.com/swup/gia-plugin/releases/tag/2.0.2
 [2.0.1]: https://github.com/swup/gia-plugin/releases/tag/2.0.1
 [2.0.0]: https://github.com/swup/gia-plugin/releases/tag/2.0.0
 [1.0.0]: https://github.com/swup/gia-plugin/releases/tag/1.0.0
