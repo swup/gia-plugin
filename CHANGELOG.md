@@ -1,6 +1,9 @@
 # Changelog
 
-<!-- ## [Unreleased] -->
+## [2.0.3] - 2023-09-26
+
+- Fix gia imports
+- Use `@swup/cli` for bundling
 
 ## [2.0.2] - 2023-09-16
 
@@ -22,8 +25,7 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/swup/gia-plugin/compare/2.0.2...HEAD
-
+[2.0.3]: https://github.com/swup/gia-plugin/releases/tag/2.0.3
 [2.0.2]: https://github.com/swup/gia-plugin/releases/tag/2.0.2
 [2.0.1]: https://github.com/swup/gia-plugin/releases/tag/2.0.1
 [2.0.0]: https://github.com/swup/gia-plugin/releases/tag/2.0.0
