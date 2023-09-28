@@ -1,7 +1,7 @@
 import Plugin from '@swup/plugin';
-import loadComponents from 'gia/loadComponents.js';
-import removeComponents from 'gia/removeComponents.js';
-import config from 'gia/config.js';
+import loadComponents from 'gia/dist/loadComponents.js';
+import removeComponents from 'gia/dist/removeComponents.js';
+import config from 'gia/dist/config.js';
 
 export default class SwupGiaPlugin extends Plugin {
 	name = 'SwupGiaPlugin';
