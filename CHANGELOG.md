@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.4] - 2023-09-28
+
+- Hopefully now really fix gia imports
+
 ## [2.0.3] - 2023-09-26
 
 - Fix gia imports
@@ -25,6 +29,7 @@
 
 - Initial release
 
+[2.0.4]: https://github.com/swup/gia-plugin/releases/tag/2.0.4
 [2.0.3]: https://github.com/swup/gia-plugin/releases/tag/2.0.3
 [2.0.2]: https://github.com/swup/gia-plugin/releases/tag/2.0.2
 [2.0.1]: https://github.com/swup/gia-plugin/releases/tag/2.0.1
